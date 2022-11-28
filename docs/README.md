@@ -1,6 +1,7 @@
 *docs* tree structure:
 
 docs/
+
 ---&nbsp;Analysis & Design/
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;Architecture
@@ -9,9 +10,9 @@ docs/
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;DB Design
 
----&nbsp;Implementation
+---&nbsp;Implementation/
 
----&nbsp;Project Management
+---&nbsp;Project Management/
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;Plan
 
@@ -19,13 +20,13 @@ docs/
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;Weekly Scrum Meeting note
 
----&nbsp;Requirements
+---&nbsp;Requirements/
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;Vision Document
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;Use-case Specs
 
----&nbsp;Testing
+---&nbsp;Testing/
 
 &nbsp;&nbsp;&nbsp;&nbsp;---&nbsp;Test plan
 
