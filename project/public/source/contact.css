@@ -1,0 +1,35 @@
+.content-contact{
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    height:554px;
+    padding-left:82px;
+}
+.guide-item{
+    display: flex;
+    display: block;
+    margin:auto;
+}
+.guide-item li{
+    list-style: none;
+    margin-top: 40px;
+  
+}
+.guide-item li i{
+    font-size: 34px;
+    margin-right:24px;
+    color: black;
+}
+.guide-item li a:hover{
+    color:#916841 ;
+    transition: 0.2s;
+}
+.guide-item li a{
+    color: black;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 29px;
+    text-decoration: none;
+}
