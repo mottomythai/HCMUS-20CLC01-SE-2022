@@ -1,21 +1,68 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<img src="{% static 'images/logo.png' %}">   
-  <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<div class="header grid">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+      <a href="#"><img src="./../../../static/images/logo.png"></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav m-auto my-2 tabs">
+          <div class="nav-link">
+            <a href="./main.html">Top</a>
+          </div>
+          <div class="nav-link">
+            <a href="./main.html">Bottom</a>
+          </div>
+          <div class="nav-link">
+            <a href="http://127.0.0.1:8000/guide/">Guide</a>
+          </div>
+          <div class="nav-link">
+            <a href="./contact.html">Contact</a>
+          </div>
+          <div class="line"></div>
+        </div>
+
+      <div class="nav-icon">
+          <!-- search -->
+          <a href="#" class="search"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <!-- profile -->
+          <a class='user' href="./login.html"><i class="fa-solid fa-user"></i></a>
+          <!-- shopping-bag -->
+          <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+    
+      </div>
+      <!-- --------modal_search------ -->
+      <div class="modal">
+        <div class="modal-overlay">
+          <div class="fechar">
+            <a href="#">Close</a> 
+          </div>
+          <div class="modal-body">    
+            <div class="container">
+              <div class="row justify-content-around">
+                <form action="" class="form-check-inline search-bar col-md-8">
+                  <input class="form-control form-input" type="search" placeholder="SEARCH" aria-label="Search" required>
+                  <button class="btn" type="submit" value="type-users"><i class="bi bi-search"></i></button>
+                </form>
+              </div>
+              
+              <!-- suggest -->
+            </div> 
+            <div class="suggest">
+              <h3>Suggest</h3>
+              <ul>
+                <li>Suggest 1</li>
+                <li>Suggest 2</li>
+                <li>Suggest 3</li>
+              </ul>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </nav>
+  </div>
+</div>

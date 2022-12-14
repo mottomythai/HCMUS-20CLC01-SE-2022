@@ -2,45 +2,49 @@
 
 {% block content %}
 
-{%  include 'hi5/status.html' %}
+<!-- -----content----- -->
+<div class="content grid">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-2">
+				<nav class="category">
+					<ul class="categoty-list">
+						<li class="categoty-item">
+							<ul> 
+								<h4>Size</h4>
+								<li>S</li>
+								<li>M</li>
+								<li>L</li>
+								<li>XL</li>
+							</ul>
+							
+						<li class="categoty-item">
+							<ul>
+								<h4>Color</h4>
+								<li>Black</li>
+								<li>While</li>
+								<li>Yellow</li>
+								<li>Red</li>
+							</ul>
+							
+						<li class="categoty-item">
+							<ul>
+								<h4>Type</h4>
+								<li>T-shirt</li>
+								<li>Shirt</li>
+								<li>Jacket</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-lg-10">
+				<div class="row products">
 
-<br>
-
-<div class="row">
-	<div class="col-md-5">
-		<h5>CUSTOMERS:</h5>
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
-			<table class="table table-sm">
-				<tr>
-					<th></th>
-					<th>Customer</th>
-					<th>Orders</th>
-				</tr>
-
-			</table>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<div class="col-md-7">
-		<h5>LAST 5 ORDERS</h5>
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
-			<table class="table table-sm">
-				<tr>
-					<th>Product</th>
-					<th>Date Orderd</th>
-					<th>Status</th>
-					<th>Update</th>
-					<th>Remove</th>
-				</tr>
-		
-			</table>
-		</div>
-	</div>
-
 </div>
 
 {% endblock %}
