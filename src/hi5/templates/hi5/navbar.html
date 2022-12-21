@@ -11,16 +11,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav m-auto my-2 tabs">
           <div class="nav-link">
-            <a href="./main.html">Top</a>
+            <a href="{% url '' %}">Top</a>
           </div>
           <div class="nav-link">
-            <a href="./main.html">Bottom</a>
+            <a href="{% url '' %}">Bottom</a>
           </div>
           <div class="nav-link">
-            <a href="http://127.0.0.1:8000/guide/">Guide</a>
+            <a href="{% url 'guide' %}">Guide</a>
           </div>
           <div class="nav-link">
-            <a href="./contact.html">Contact</a>
+            <a href="{% url 'contact' %}">Contact</a>
           </div>
           <div class="line"></div>
         </div>

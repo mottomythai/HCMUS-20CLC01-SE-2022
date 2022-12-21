@@ -83,20 +83,20 @@ for (var i = 0; i < data_product.length; i++){
 $('.row.products').append(toAdd);
 document.appendChild(toAdd);
 
-// --product-item
-const product_item = document.getElementById('1');
-console.log(product_item);
+// // --product-item
+// const product_item = document.getElementById('1');
+// console.log(product_item);
 
-const handleClick = function (e) {
-  e.preventDefault();
-  console.log(e);
-}
-product_item.addEventListener('click', handleClick());
+// const handleClick = function (e) {
+//   e.preventDefault();
+//   console.log(e);
+// }
+// product_item.addEventListener('click', handleClick());
 
-const a = data_product.find((product) => {
-  return product.id == 2
+// const a = data_product.find((product) => {
+//   return product.id == 2
  
-});
+// });
 
 //--product-item
 // const html = data_product.find(index =>

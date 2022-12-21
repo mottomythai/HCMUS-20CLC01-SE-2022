@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 def home(request):
     return render(request,'hi5/dashboard.html')
     # C:\Users\trang\Desktop\crm11\hi5\templates\acc\dashboard.html
