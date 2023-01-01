@@ -40,7 +40,21 @@
 			</div>
 			<div class="col-lg-10">
 				<div class="row products">
-
+					{% for item in product_list %}
+						<div class="col-lg-3">
+							<a class="card-link" href="{% url 'producitem' %}">
+								<div class="card" style="width: 15rem; margin-bottom:20px">
+									<div class="card-img">
+										<img src="{{ item.thumbnail }}" class="card-img-top" alt="...">
+									</div>
+									<div class="card-body">
+										<p class="card-text" style="font-size:16px;">{{ item.name }}</p>
+										<p class="price" style="font-Size:14px;color:#000000a1;">{{ item.price }}.000</p>
+									</div>
+								</div>
+							</a>
+						</div>
+			 		{% endfor %} 
 				</div>
 			</div>
 		</div>
