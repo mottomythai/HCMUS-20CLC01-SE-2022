@@ -6,13 +6,25 @@ from .models import product
 from .models import *
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display=('ID','name','price','description','thumbnail')
+    list_display=('ID','name','price','description','thumbnail','categoryid','price')
     search_fields=['name']
     list_filter=('ID','name','price')
 admin.site.register(product,ProductAdmin)
 
 
+class ProductDetailAdmin(admin.ModelAdmin):
+    list_display=('ID','productid','color','size')
+    search_fields=['color,size']
+    list_filter=('ID','productid','color','size')
+    
+admin.site.register(productdetail,ProductDetailAdmin)
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display=('ID','name')
+    search_fields=['name']
+    list_filter=('ID','name')
+admin.site.register(category,CategoryAdmin)
+#admin.site.register(color)
 # admin.site.register(Customer)
 # admin.site.register(Product)
 # admin.site.register(Orderdetail)

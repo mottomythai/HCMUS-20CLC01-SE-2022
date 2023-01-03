@@ -12,6 +12,7 @@ urlpatterns = [
     path("guide/", views.guide,name='guide'),
     path("login/", views.productitem,name='login'),
     path("product_item/", views.productitem,name='producitem'),
-    path("password/", accout.PasswordChange,name='password'),
+    path("password/", accout.PasswordChange,name='password')
+    #path('<str:size>/', views.size, name='search'),
 ]
 admin.site.site_header='Hi5'

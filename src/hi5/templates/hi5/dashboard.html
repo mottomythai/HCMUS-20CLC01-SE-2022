@@ -10,29 +10,37 @@
 				<nav class="category">
 					<ul class="categoty-list">
 						<li class="categoty-item">
-							<ul> 
-								<h4>Size</h4>
-								<li>S</li>
-								<li>M</li>
-								<li>L</li>
-								<li>XL</li>
+							<ul>
+								<!-- <h4>Size</h4>
+								{% for i in size_list %}
+									<li>{{i}}</li>
+								{% endfor %} -->
+								<h4><a href="{% url '' %}">Size</a></h4>	
+								{% for i in size_list %}
+									<li><a href = "{% url '' %}?size={{i}}"class="nav-link">{{i}} </a></li>
+								{% endfor %} 
 							</ul>
-							
+
 						<li class="categoty-item">
 							<ul>
-								<h4>Color</h4>
-								<li>Black</li>
-								<li>While</li>
-								<li>Yellow</li>
-								<li>Red</li>
+								<!-- <h4>Color</h4>
+								
+								{% for i in color_list %}
+									<li>{{i}}</li>
+								{% endfor %} -->
+
+								<h4><a href="{% url '' %}">Color</a></h4>	
+								{% for i in color_list %}
+									<li><a href = "{% url '' %}?color={{i}}"class="nav-link">{{i}} </a></li>
+								{% endfor %} 
 							</ul>
-							
+
 						<li class="categoty-item">
 							<ul>
-								<h4>Type</h4>
-								<li>T-shirt</li>
-								<li>Shirt</li>
-								<li>Jacket</li>
+								<h4><a href="{% url '' %}">Type</a></h4>								
+								{% for item in product_list %}
+									<li><a href = "{% url '' %}?category={{item.categoryid.ID}}"  class="nav-link">{{item.categoryid.name}} </a></li>
+								{% endfor %}
 							</ul>
 						</li>
 					</ul>
@@ -54,7 +62,7 @@
 								</div>
 							</a>
 						</div>
-			 		{% endfor %} 
+			 		{% endfor %}
 				</div>
 			</div>
 		</div>
