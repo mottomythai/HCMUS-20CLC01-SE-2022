@@ -73,7 +73,13 @@ def logoutpage(request):
     return redirect('login')
 def productitem(request):
     return render(request,'hi5/product-item.html')
-
+def search(request):
+    query = request.GET.get('query')
+    product_list = product_model.objects.filter(name__icontains=query)
+    context = {
+       'product_list': product_list
+    }
+    return render(request,'hi5/search.html', context)
 # def size(request,sizefind):
 #     #sizefind =  request.GET.get('size')
 #     if sizefind:
