@@ -20,46 +20,20 @@
     <link rel="stylesheet" href="{% static '/css//base.css' %}">
     <!-- js -->
 </head>
+
 <body>
     {%  include 'hi5/navbar.html' %}
 
 	{% block content %}
-    
-	<div class="content-login gird">
-        <div class="login">
-            <h1 class="text-center">SIGN UP</h1>
-            
-            <form action = "{% url 'signup' %}" method="POST" class="needs-validation">
-                {% csrf_token %} 
-                <div class="form-group">
-                    <input class="form-control form-size" name="username" type="text" id="username"  placeholder="Username" required>
-                </div>
-                <div class="form-group">
-                    <input class="form-control form-size" name="email" type="email" id="email"  placeholder="email" required>
-                </div>
-                <div class="form-group">
-                    <input class="form-control form-size" name="password" type="password" id="password"  placeholder="Password" required>
-                </div>
-            
-                {% for message in messages %}
-                    <div class="alert alert-warning" role="alert">
-                     {{message}}
-                  </div>
-                {% endfor%}
-
-                <div class="login-footer">
-                    <div class="button">
-                        <input  style="color:black;" class="btn btn-success btn-br" type="submit" value="SIGN UP">
-                    </div>
-                    <div class="footer-text">
-                        <p style="margin-top:13px;margin-right:30px;"><a href="{% url 'login' %}">Đăng nhập?</a></p>
-                    </div>
-                </div>
-                
-            </form>
+    <div class="content-login gird">
+        <div class="text-center">
+            <h2>PASSWORD RESET COMPLETED</h2>
+            <br>
+            <a href="{% url 'login' %}"class="btn btn-secondary btn-lg" >Log In Again</a>
         </div>
     </div>
-	{% endblock %}
+    {% endblock %}
+    
     
     <!-- -----footer----- -->
     {%  include 'hi5/footer.html' %}
@@ -68,3 +42,5 @@
     <script src="{% static '/js//main.js' %}"></script>
 </body>
 </html>
+
+
