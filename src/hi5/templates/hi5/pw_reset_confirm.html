@@ -20,38 +20,27 @@
     <link rel="stylesheet" href="{% static '/css//base.css' %}">
     <!-- js -->
 </head>
+
 <body>
     {%  include 'hi5/navbar.html' %}
 
 	{% block content %}
-	
-	{% endblock %}
     <div class="content-login gird">
         <div class="login">
-            <h1 class="text-center">FORGOT PASSWORD</h1>
-            <p>forgotten your password? enter your email address below, and we'll email instructions for setting a new one</p>
+            <h1 class="text-center">ENTER NEW PASSWORD</h1>
+            <p class="text-center" >Please enter your password twice so we can verify you typed it correctly</p>
+
             <form method="POST" class="needs-validation">
-                {% comment %} {% csrf_token %} 
-                <div class="form-group">
-                    <input class="form-control form-size" name="username" type="text" id="username"  placeholder="Username" required>
-                </div>
-                {% for message in messages %}
-                    <div class="alert alert-warning" role="alert">
-                     {{message}}
-                  </div>
-                {% endfor%}
-                <div class="login-footer">
-                    <div class="button">
-                        <input class="btn btn-success btn-br" type="submit" value="RESET" style="color:black;">
-                    </div>
-                    <div class="footer-text" >
-                        <a href="#" style="margin-left:5px;">Đăng Ký?</a>
-                        <p>hoặc<a href="#">Đăng nhập?</a></p>
-                    </div>
-                </div> {% endcomment %}
+                {% csrf_token %}
+                {{form}}
+                <br>
+                <br>
+                <input class="btn btn-secondary btn-lg btn-block" type ="Submit" name="Update Password">
             </form>
         </div>
     </div>
+    {% endblock %}
+    
     
     <!-- -----footer----- -->
     {%  include 'hi5/footer.html' %}

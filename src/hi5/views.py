@@ -50,10 +50,13 @@ def contact(request):
     # return HttpResponse('Products page')
     return render(request,'hi5/contact.html')
 # Create your views here.
+
 def guide(request):
     return render(request,'hi5/guide.html')
+
 def infouserpage(request):
     return render(request,'hi5/userpage.html')
+
 def loginpage(request):
     if request.method =='POST':
         username=request.POST.get('username')
@@ -68,25 +71,27 @@ def loginpage(request):
             messages.info(request, 'Username or Password is incorrect')
     context={}
     return render(request,'hi5/login.html',context)
+
 def signuppage(request):
     if request.method == 'POST':
-        form = CreateuserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            email = form.cleaned_data.get('email')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
+        # check if user exists
+        try:
+            user = User.objects.get(username=request.POST.get('username'))
+            return render(request,'hi5/signup.html',messages.info(request, "Username Has Already Been Taken"))
+            
+        except User.DoesNotExist:
+            user = User.objects.create_user(request.POST.get('username'),request.POST.get('email'),request.POST.get('password'))
+            user.save()
+            messages.info(request, "Sign up successfully. Log In Again To Continue")
             return redirect('login')
+            
     else:
-        form = UserCreationForm()
-    return render(request,'hi5/signup.html',{'form': form})
-def PasswordForgot(request):
-    return render(request,'hi5/ForgotPW.html')
+        return render(request,'hi5/signup.html')
+
 def logoutpage(request):
     logout(request)
     return redirect('login')
+    
 def productitem(request):
     productfind = request.GET.get('product')
     p_id = product_model.objects.filter(name=productfind)
