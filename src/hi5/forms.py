@@ -11,7 +11,7 @@ class accountForm(ModelForm):
         fields='__all__'
         exclude=['username']
 
-class CreateuserForm(UserCreationForm):
-    class Meta:
-        model=User
-        fields=['username','password']
+class CreateuserForm(forms.Form):
+    username = forms.CharField(label='Username', max_length=30)
+    email = forms.EmailField(label='Email')
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)

@@ -3,6 +3,21 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+class product(models.Model):
+    ID =models.AutoField(primary_key=True)
+    name=models.CharField(max_length=200,null=False)
+    price=models.IntegerField(null=True)
+    thumbnail=models.CharField(max_length=400,null=True)
+    itemno =models.CharField(max_length=50,null=True)
+    description= models.CharField(max_length=500,null=True)
+    thumbnail2=models.CharField(max_length=500,null=True)
+    thumbnail3=models.CharField(max_length=500,null=True)
+    thumbnail4=models.CharField(max_length=500,null=True)
+    thumbnail5=models.CharField(max_length=500,null=True)
+    def __str__(self):
+        return f"{self.ID},{self.name},{self.price},{self.thumbnail},{self.itemno},{self.description},{self.thumbnail2},{self.thumbnail3},{self.thumbnail4},{self.thumbnail5}"
+
 class category(models.Model):
     ID =models.AutoField(primary_key=True)
     name = models.CharField(max_length = 200, null=False)
@@ -15,21 +30,11 @@ class category(models.Model):
 #     def __str__(self) -> str:
 #         return f"{self.name}, {self.code}"
 
-class product(models.Model):
-    ID =models.AutoField(primary_key=True)
-    name=models.CharField(max_length=200,null=False)
-    price=models.IntegerField(null=True)
-    description= models.CharField(max_length=300,null=True)
-    thumbnail=models.CharField(max_length=400,null=True)
-    categoryid = models.ForeignKey(category,null=True, on_delete=models.SET_NULL)
-    def __str__(self):
-        return f"{self.ID},{self.name}, {self.categoryid},{self.price},{self.description},{self.thumbnail}"
-
-
 class productdetail(models.Model):
     ID =models.AutoField(primary_key=True)
     productid = models.ForeignKey(product, on_delete=models.SET_NULL, null=True)
     color = models.CharField(max_length=200,null=False)
     size = models.CharField(max_length=10,null=False)
+    
     def __str__(self):
         return f"{self.productid.name},{self.color}, {self.size}"

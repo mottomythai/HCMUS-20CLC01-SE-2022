@@ -6,11 +6,10 @@ from .models import product
 from .models import *
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display=('ID','name','price','description','thumbnail','categoryid','price')
+    list_display=('ID','name','price','thumbnail','itemno','description','thumbnail2','thumbnail3','thumbnail4','thumbnail5')
     search_fields=['name']
     list_filter=('ID','name','price')
 admin.site.register(product,ProductAdmin)
-
 
 class ProductDetailAdmin(admin.ModelAdmin):
     list_display=('ID','productid','color','size')
@@ -24,7 +23,7 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields=['name']
     list_filter=('ID','name')
 admin.site.register(category,CategoryAdmin)
-#admin.site.register(color)
+
 # admin.site.register(Customer)
 # admin.site.register(Product)
 # admin.site.register(Orderdetail)

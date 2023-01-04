@@ -1,0 +1,43 @@
+{%  extends 'hi5/main.html' %}
+
+{% block content %}
+<div class="content grid">
+    <div class="container" >
+        <br>
+        <h2>Search Result :</h2>
+        {% if product_list|length < 1 %}
+        <p>No Product Found</p>
+        {% endif %}
+    </div>
+</div>
+
+
+<div class="content grid">
+	<div class="container-fluid">
+
+			<div class="col-lg-10">
+				<div class="row products">
+					{% for item in product_list %}
+						<div class="col-lg-3">
+							<a class="card-link" href="{% url 'producitem' %}?product={{item.name}}">
+								<div class="card" style="width: 15rem; margin-bottom:20px">
+									<div class="card-img">
+										<img src="{{ item.thumbnail }}" class="card-img-top" alt="...">
+									</div>
+									<div class="card-body">
+										<p class="card-text" style="font-size:16px;">{{ item.name }}</p>
+										<p class="price" style="font-Size:14px;color:#000000a1;">{{ item.price }}.000</p>
+									</div>
+								</div>
+							</a>
+						</div>
+			 		{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>
+<!-- Shop Page Start  -->
+
+                    <!-- Tab Content Area End -->
+{% endblock %}

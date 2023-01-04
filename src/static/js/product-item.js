@@ -11,5 +11,3 @@ closeproduct.onclick = function ()
 {
     modalproduct.style.display = 'none';
 }
-
-    

@@ -36,6 +36,29 @@
     
       </div>
       <!-- --------modal_search------ -->
+      <style>
+        #scroll-to-top-button {
+          background-image: url('./../../../static/images/top.png');
+          background-size: cover;
+          position: fixed; /* Đặt vị trí cố định */
+          bottom: 160px; /* Đặt khoảng cách từ phía dưới trang */
+          right: 0px; /* Đặt khoảng cách từ bên phải trang */
+          width: 35px;
+          height: 35px;
+          border:none;
+          z-index: 100; /* Làm cho nút bấm hiển thị dưới một lớp trên tất cả các nội dung khác trên trang */
+        }
+        .chat-messager{
+          position: fixed; /* Đặt vị trí cố định */
+          bottom: 80px; /* Đặt khoảng cách từ phía dưới trang */
+          right: 50px; /* Đặt khoảng cách từ bên phải trang */
+
+        }
+      </style>
+      <button id="scroll-to-top-button"></button>
+      <a href="">
+        <image src="./../../../static/images/messenger.png" style="width:60px;" class="chat-messager">
+      </a>
       <div class="modal">
         <div class="modal-overlay">
           <div class="fechar">
@@ -44,8 +67,8 @@
           <div class="modal-body">    
             <div class="container">
               <div class="row justify-content-around">
-                <form action="" class="form-check-inline search-bar col-md-8">
-                  <input class="form-control form-input" type="search" placeholder="SEARCH" aria-label="Search" required>
+                <form action="/search/" method="get" class="form-check-inline search-bar col-md-8">
+                  <input class="form-control form-input" type="search" placeholder="SEARCH NOW" name="query" id="query" aria-label="Search" required>
                   <button class="btn" type="submit" value="type-users"><i class="bi bi-search"></i></button>
                 </form>
               </div>
@@ -66,3 +89,25 @@
     </nav>
   </div>
 </div>
+<script>
+  // Khi người dùng nhấn nút bấm, kéo trang xuống đầu trang
+  document.getElementById('scroll-to-top-button').addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+
+window.addEventListener('scroll', function() {
+  // Lấy vị trí hiện tại của trang
+  var currentScrollPosition = window.pageYOffset;
+  
+  // Nếu người dùng đã kéo trang xuống khoảng cách 100px từ đầu trang, hiển thị nút bấm
+  if (currentScrollPosition > 170) {
+    document.getElementById('scroll-to-top-button').style.display = 'block';
+  } else { // Ngược lại
+    document.getElementById('scroll-to-top-button').style.display = 'none';
+  }
+});
+</script>

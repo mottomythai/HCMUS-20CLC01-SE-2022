@@ -8,6 +8,5 @@ class account(models.Model):
     phone=models.CharField(max_length=12, null=False) 
     address=models.CharField(max_length=200, null=False) 
     profile_pic=models.ImageField(null=True,blank=True)
-    email=models.CharField(max_length=50, null=False) 
     def __str__(self):
-        return f"{self.userid},{self.username},{self.name},{self.phone},{self.address},{self.email}"
+        return f"{self.userid},{self.username},{self.name},{self.phone},{self.address}"

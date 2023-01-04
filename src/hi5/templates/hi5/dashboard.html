@@ -1,56 +1,41 @@
 {%  extends 'hi5/main.html' %}
 
 {% block content %}
-
 <!-- -----content----- -->
 <div class="content grid">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-2">
+				<form action="" method="POST">
 				<nav class="category">
 					<ul class="categoty-list">
 						<li class="categoty-item">
-							<ul>
-								<!-- <h4>Size</h4>
-								{% for i in size_list %}
-									<li>{{i}}</li>
-								{% endfor %} -->
-								<h4><a href="{% url '' %}">Size</a></h4>	
-								{% for i in size_list %}
-									<li><a href = "{% url '' %}?size={{i}}"class="nav-link">{{i}} </a></li>
-								{% endfor %} 
-							</ul>
-
+							<h4>Size</h4>
+							{% for i in size_list %}
+								<a href = "{% url '' %}?size={{i}}" class="size-link" style="text-decoration: none;">{{i}} </a>
+							{% endfor %} 
+						<li class="categoty-item">
+							<h4>Color</h4>
+							{% for j in color_list %}
+								<a href = "{% url '' %}?color={{j}}" class="size-link" style="text-decoration: none;">{{j}} </a>
+							{% endfor %} 				
 						<li class="categoty-item">
 							<ul>
-								<!-- <h4>Color</h4>
-								
-								{% for i in color_list %}
-									<li>{{i}}</li>
-								{% endfor %} -->
-
-								<h4><a href="{% url '' %}">Color</a></h4>	
-								{% for i in color_list %}
-									<li><a href = "{% url '' %}?color={{i}}"class="nav-link">{{i}} </a></li>
-								{% endfor %} 
-							</ul>
-
-						<li class="categoty-item">
-							<ul>
-								<h4><a href="{% url '' %}">Type</a></h4>								
-								{% for item in product_list %}
-									<li><a href = "{% url '' %}?category={{item.categoryid.ID}}"  class="nav-link">{{item.categoryid.name}} </a></li>
-								{% endfor %}
+								<h4>Type</h4>
+								<a href="#" class="size-link" style="text-decoration: none;">T-shirt</a>
+								<a href="#" class="size-link" style="text-decoration: none;">Shirt</a>
+								<a href="#" class="size-link" style="text-decoration: none;">Jacket</a>
 							</ul>
 						</li>
 					</ul>
 				</nav>
+			</form>
 			</div>
 			<div class="col-lg-10">
 				<div class="row products">
 					{% for item in product_list %}
 						<div class="col-lg-3">
-							<a class="card-link" href="{% url 'producitem' %}">
+							<a class="card-link" href="{% url 'producitem' %}?product={{item.name}}">
 								<div class="card" style="width: 15rem; margin-bottom:20px">
 									<div class="card-img">
 										<img src="{{ item.thumbnail }}" class="card-img-top" alt="...">
@@ -62,10 +47,17 @@
 								</div>
 							</a>
 						</div>
-			 		{% endfor %}
+			 		{% endfor %} 
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+	const elements = document.querySelectorAll('.size-link');
+	for (let i = 0; i < elements.length; i++) {
+		elements[i].textContent = elements[i].textContent.toUpperCase();
+	  }
+	
+</script>
 {% endblock %}
