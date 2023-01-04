@@ -18,5 +18,5 @@ urlpatterns = [
     path("reset/<uidb64>/<token>/",auth_views.PasswordResetConfirmView.as_view(), name='reset_password_confirm'),
     path("reset_password_complete/",auth_views.PasswordResetCompleteView.as_view(), name='reset_password_complete'),
     path("search/",views.search,name='search')
-]
+]   
 admin.site.site_header='Hi5'

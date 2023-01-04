@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import product as product_model
 from .models import productdetail as productdetail_model
+from .models import category as category_model
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate ,login, logout
 from django.contrib import messages
@@ -14,23 +15,23 @@ def home(request):
     product_list= product_model.objects.filter().order_by('ID')    #select *from product
     size_list = productdetail_model.objects.values_list('size',flat=True).distinct()
     color_list = productdetail_model.objects.values_list('color',flat=True).distinct()
+    category_id_list = product_model.objects.values_list('categoryid',flat=True).distinct()
+    category_name_list = category_model.objects.values_list('name',flat=True).filter(ID__in=category_id_list)
+
     
     categoryfind = request.GET.get('category')
+    colorfind =  request.GET.get('color')
+    sizefind =  request.GET.get('size')
 
     if categoryfind:
-        product_list = product_model.objects.filter(categoryid=categoryfind)
-    else:
-        product_list= product_model.objects.filter().order_by('ID')    #select *from product
-    
-    colorfind =  request.GET.get('color')
-    if colorfind:
+        p_id3 = category_model.objects.values('ID').filter(name=categoryfind)
+        product_list = product_model.objects.filter(categoryid__in=p_id3)
+
+    elif colorfind:
         p_id2 = productdetail_model.objects.values('productid').filter(color=colorfind)
         product_list = product_model.objects.filter(ID__in=p_id2)
-    else:
-        product_list = product_model.objects.filter().order_by('ID')
 
-    sizefind =  request.GET.get('size')
-    if sizefind:
+    elif sizefind:
         p_id = productdetail_model.objects.values('productid').filter(size=sizefind)
         product_list = product_model.objects.filter(ID__in=p_id)
     else:
@@ -41,10 +42,9 @@ def home(request):
        'product_list': product_list,
        'size_list': size_list,
        'color_list': color_list,
-       #'productdetail_list': productdetail_list
+       'category_name_list': category_name_list
     }
     return render(request, 'hi5/dashboard.html',context)
-
 
 def contact(request):
     # return HttpResponse('Products page')

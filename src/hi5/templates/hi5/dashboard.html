@@ -2,6 +2,14 @@
 
 {% block content %}
 <!-- -----content----- -->
+<style>
+	.size{
+		color:black;
+	}
+	.size:hover{
+		color:rgb(176, 170, 170);
+	}
+</style>
 <div class="content grid">
 	<div class="container-fluid">
 		<div class="row">
@@ -10,22 +18,20 @@
 				<nav class="category">
 					<ul class="categoty-list">
 						<li class="categoty-item">
-							<h4>Size</h4>
+							<a href = "{% url '' %}" class="size" style="text-decoration: none;"><h4>Size</h4></a>
 							{% for i in size_list %}
-								<a href = "{% url '' %}?size={{i}}" class="size-link" style="text-decoration: none;">{{i}} </a>
+							<a href = "{% url '' %}?size={{i}}" class="size-link" style="text-decoration: none;">{{i}} </a>
 							{% endfor %} 
 						<li class="categoty-item">
-							<h4>Color</h4>
+							<a href = "{% url '' %}" class="size" style="text-decoration: none;"><h4>Color</h4></a>
 							{% for j in color_list %}
 								<a href = "{% url '' %}?color={{j}}" class="size-link" style="text-decoration: none;">{{j}} </a>
 							{% endfor %} 				
 						<li class="categoty-item">
-							<ul>
-								<h4>Type</h4>
-								<a href="#" class="size-link" style="text-decoration: none;">T-shirt</a>
-								<a href="#" class="size-link" style="text-decoration: none;">Shirt</a>
-								<a href="#" class="size-link" style="text-decoration: none;">Jacket</a>
-							</ul>
+							<a href="{% url '' %}" class="size" style="text-decoration: none;"><h4>Category</h4></a>							
+							{% for item in category_name_list %}
+								<a href = "{% url '' %}?category={{item}}"  class="size-link"style="text-decoration: none;">{{item}} </a>
+							{% endfor %}
 						</li>
 					</ul>
 				</nav>

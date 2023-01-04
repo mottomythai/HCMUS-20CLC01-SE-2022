@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
+class category(models.Model):
+    ID =models.AutoField(primary_key=True)
+    name = models.CharField(max_length = 200, null=False)
+    def __str__(self) -> str:
+        return f"{self.ID}, {self.name}"
 
 class product(models.Model):
     ID =models.AutoField(primary_key=True)
@@ -11,6 +15,7 @@ class product(models.Model):
     thumbnail=models.CharField(max_length=400,null=True)
     itemno =models.CharField(max_length=50,null=True)
     description= models.CharField(max_length=500,null=True)
+    categoryid = models.ForeignKey(category,null=True, on_delete=models.SET_NULL)
     thumbnail2=models.CharField(max_length=500,null=True)
     thumbnail3=models.CharField(max_length=500,null=True)
     thumbnail4=models.CharField(max_length=500,null=True)
@@ -18,11 +23,7 @@ class product(models.Model):
     def __str__(self):
         return f"{self.ID},{self.name},{self.price},{self.thumbnail},{self.itemno},{self.description},{self.thumbnail2},{self.thumbnail3},{self.thumbnail4},{self.thumbnail5}"
 
-class category(models.Model):
-    ID =models.AutoField(primary_key=True)
-    name = models.CharField(max_length = 200, null=False)
-    def __str__(self) -> str:
-        return f"{self.ID}, {self.name}"
+
         
 # class color(models.Model):
 #     name = models.CharField(max_length=200)
