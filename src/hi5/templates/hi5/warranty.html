@@ -18,32 +18,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <!-- bootstrap -->
     <link rel="stylesheet" href="{% static '/css//bootstrap//bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static '/css//contact.css' %}">
     <link rel="stylesheet" href="{% static '/css//style.css' %}">
     <link rel="stylesheet" href="{% static '/css//base.css' %}">
     <!-- js -->
+
 </head>
 
 <body>
     {% include 'hi5/navbar.html' %}
 
     {% block content %}
-
+    <section>
+        <div class="col-xl-5 offset-xl-4" style="padding-top: 20px; text-align: justify;">
+            <p><strong>Warranty Policy</strong></p>
+            <p>All Hi-5 products will be covered for one year from date-of-purchase against issues arising from
+                manufacturing defects and faults. This cover is only available to the original owner and is not
+                transferable. Cover is only applicable to products when purchased new from an Authorised Hi-5 Dealer or
+                Authorised Hi-5 Online Retailer.</p>
+            <p>Please be aware of circumstances that are not covered by our warranty:</p>
+            <p>The warranty period has expired.<br />
+                Damage caused by general wear and tear, wear against abrasive surfaces such as rough seams, non-cycle
+                specific clothing or under-saddle fenders.<br />
+                Damage caused by UV (Sunlight or other natural phenomena), Fire, Bleach, Coloured Materials or Bicycle
+                Cleaners.<br />
+                Rips, Burns, Tears and Damages due to accident, normal wear and tear, improper care, mis-use, or the
+                natural breakdown of colours, finishes and materials over time.<br />
+                Damaged caused by improper repair, adjustments or lack of maintenance.<br />
+                Proof of purchase is not presented.</p>
+        </div>
+    </section>
     {% endblock %}
-
-    <!-- -----content----- -->
-    <div class="content-contact grid">
-        <ul class="guide-item">
-            <li><i class="fa-brands fa-facebook"></i><a href="https://www.facebook.com/facebook">Hi-5</a></li>
-            <li><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/instagram">@Hi-5</a></li>
-            <li><i class="fa-solid fa-phone"></i><a href="tel:+84912345678">091 2345 678</a></li>
-            <li><i class="fa-solid fa-location-dot"></i><a href="https://goo.gl/maps/VGyk8Eo1P5SkFLSF9">227 Đ. Nguyễn
-                    Văn Cừ, P.4, Q.5, TP. Hồ Chí Minh</a></li>
-        </ul>
-
-    </div>
-    <!-- -----footer----- -->
     {% include 'hi5/footer.html' %}
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -51,7 +57,6 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="{% static '/js//main.js' %}"></script>
-
 </body>
 
 </html>

@@ -18,32 +18,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <!-- bootstrap -->
     <link rel="stylesheet" href="{% static '/css//bootstrap//bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static '/css//contact.css' %}">
     <link rel="stylesheet" href="{% static '/css//style.css' %}">
     <link rel="stylesheet" href="{% static '/css//base.css' %}">
     <!-- js -->
+
 </head>
 
 <body>
     {% include 'hi5/navbar.html' %}
 
     {% block content %}
-
+    <section>
+        <div class="col-xl-6 offset-xl-3">
+            <h1 style="text-align: center;padding-bottom: 20px;">How to make purchase</h1>
+            <p style="text-align: left;"><em>Welcome to Hi-5!</em><br>This is step-by-step guide for customers who
+                want
+                to buy some cool things from Hi-5.<br><br><strong><span style="color: inherit;">Step 1: Click on the
+                        item</span></strong><br><br><strong>Step 2: Choose size, color and
+                    quantity</strong><br><br><strong>Step 3: Click on <em>Add to cart</em></strong><br><br><strong>Step
+                    4: Register or login to checkout</strong><br><br><strong>Step 5: Click on Cart icon to view your
+                    cart</strong><br><br><strong>Step 6: Click on <em>Checkout</em></strong><br><br><strong>Step 7: Fill
+                    in shipping address</strong><br><br><strong>Step 8: Click on <em>Done. </em>That's it! You have made
+                    a purchase</strong><br><br><em>Thank you for shopping at Hi-5!</em></p>
+        </div>
+    </section>
     {% endblock %}
-
-    <!-- -----content----- -->
-    <div class="content-contact grid">
-        <ul class="guide-item">
-            <li><i class="fa-brands fa-facebook"></i><a href="https://www.facebook.com/facebook">Hi-5</a></li>
-            <li><i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/instagram">@Hi-5</a></li>
-            <li><i class="fa-solid fa-phone"></i><a href="tel:+84912345678">091 2345 678</a></li>
-            <li><i class="fa-solid fa-location-dot"></i><a href="https://goo.gl/maps/VGyk8Eo1P5SkFLSF9">227 Đ. Nguyễn
-                    Văn Cừ, P.4, Q.5, TP. Hồ Chí Minh</a></li>
-        </ul>
-
-    </div>
-    <!-- -----footer----- -->
     {% include 'hi5/footer.html' %}
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -51,7 +52,6 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="{% static '/js//main.js' %}"></script>
-
 </body>
 
 </html>

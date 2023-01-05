@@ -1,70 +1,80 @@
 {% load static %}
 <style>
-    .icon-img{
-        width:32px;
-        margin-right:25px;
+    .icon-img {
+        width: 32px;
+        margin-right: 25px;
     }
-    .icon-img:hover{
-        opacity:0.3;
+
+    .icon-img:hover {
+        opacity: 0.3;
     }
-    .info-footer{
-        color:white;
+
+    .info-footer {
+        color: white;
     }
-    .info-footer:hover,.li-between:hover{
-        color:#868686;
+
+    .info-footer:hover,
+    .li-between:hover {
+        color: #868686;
     }
-    .li-between{
-        font-size:14px;
+
+    .li-between {
+        font-size: 14px;
         list-style: none;
-        margin-top:10px;
-        margin-left:110px;
+        margin-top: 10px;
+        margin-left: 110px;
         cursor: pointer;
     }
 </style>
-    <footer class="bg-dark text-white py-2" style="margin-top:74px">
-        <div class="container" style="margin-Bottom:20px">
-            <div class="row" style="margin">
-            <div class="col-12 text-center">
-            <hr class="bg-light">
-                <h3 style="font-size:17px;">"HI 5 STORE"</h3>
-                <hr class="bg-light">
-            </div>
+<footer class="bg-dark text-white py-2" style="margin-top:74px">
+    <div class="container" style="margin-Bottom:20px">
+        <div class="row">
             <div class="col-4">
-                <h4 style="font-size:13px;">FOLLOW HI 5</h4>
-                <div class="d-flex justify-content-around align-items-center mt-4">
-                    <div style="margin-right:150px; width=25px;">
-                        <a href=""><img class="icon-img" style="border-radius:9px;" src="https://cdn-icons-png.flaticon.com/512/1051/1051309.png"></img></a>
-                        <a href=""><img class="icon-img" src="https://cdn-icons-png.flaticon.com/512/1400/1400829.png"></img></a>
-                        <a href=""><img class="icon-img" style="border-radius:9px;" src="https://cdn-icons-png.flaticon.com/512/5968/5968812.png"></img></a>
-                        <a href=""><img class="icon-img " src="https://cdn-icons-png.flaticon.com/512/254/254412.png"></img></a>
-                    </div>
-                </div>
+                <img src="../../../static/images/logo-white.svg" alt="" style="width: 50px;">
                 <form class="mt-4">
                     <div class="form-group" style="display: flex; align-items: center;">
-                        <input type="email" class="form-control-sm" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                            placeholder="Enter email to get updates about Hi-5">
                         <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 10px;">Send</button>
-                      </div>
+                    </div>
                 </form>
-                <p class="mt-4" style="font-size:14px">Hotline: 0912345678 - 0987654321</p>
-                <li style="font-size:14px">Email: hi5storesupport@gmail.com</li>
+                <p class="mt-4" style="font-size:14px;">Hotline: <a href="tel:0912345678"
+                        style="color: white;">0912345678</a> -
+                    <a href="tel:0987654321" style="color: white;">0987654321</a>
+                </p>
+                <a href="mailto:hi5storesupport@gmail.com" style="color: white;">Email:
+                    hi5storesupport@gmail.com</a>
             </div>
-            <div class="col-4">
-                <h4 style="font-size:13px; margin-bottom:30px; margin-left:110px">CHI NHÁNH CỬA HÀNG</h4>
-                    <li class="li-between">GIỚI THIỆU VỀ HI 5</li>
-                    <li class="li-between">TUYỂN DỤNG</li>
-                    <li class="li-between">TIN THỜI TRANG</li>
-                    <li class="li-between">HỢP TÁC NHƯỢNG QUYỀN</li>
-                    <li class="li-between">LIÊN HỆ</li>
-                <h4 style="font-size:13px;margin-top:37px; margin-left:110px;">© 2023 <a href="" style="text-decoration: none;">HI5<a> ALL RIGHT RESERVED.</h4>
+            <div class="col-4 mt-4">
+                <li class="li-between"><a href="{% url '' %}" style="color: white;">ABOUT HI-5</a> </li>
+                <li class="li-between"><a href="{% url '' %}" style="color: white;">TOP</a></li>
+                <li class="li-between"><a href="{% url '' %}" style="color: white;">BOTTOM</a></li>
+                <li class="li-between"><a href="{% url 'contact' %}" style="color: white;">CONTACT</a></li>
             </div>
-            <div class="col-4">
-                <ul class="list-unstyled mt-4">
-                    <a href="" class="text-decoration-none info-footer"style="font-size:15px;"><li style="margin-Bottom:20px; margin-left:194px">TÌM KIẾM</li></a>
-                    <a href="" class="text-decoration-none info-footer"style="font-size:15px;"><li style="margin-Bottom:20px; margin-left:194px">CHÍNH SÁCH ĐỔI TRẢ</li></a>
-                    <a href="" class="text-decoration-none info-footer"style="font-size:15px;"><li style="margin-Bottom:20px; margin-left:194px">CHÍNH SÁCH BẢO MẬT</li></a>
-                    <a href="" class="text-decoration-none info-footer"style="font-size:15px;"><li style="margin-Bottom:20px; margin-left:194px">ĐIỀU KHOẢN DỊCH VỤ</li></a>
-                </ul>
-            </div>
+            <div class="col-4 mt-4">
+                <li class="li-between"><a href="{% url 'warranty' %}" style="color: white;">WARRANTY</a> </li>
+                <li class="li-between"><a href="{% url 't&c' %}" style="color: white;">TERMS &
+                        CONDITIONS</a></li>
+
+                <li class="li-between mt-4">
+                    <h4 style="font-size:13px;">FOLLOW US</h4>
+                </li>
+                <li class="li-between">
+                    <div class="d-flex">
+                        <div>
+                            <a href="http://www.facebook.com/facebook"><i class="fa-brands fa-facebook"
+                                    style="color: white; font-size: 2em;"></i></a>
+                            <a href="http://www.instagram.com/instagram"><i class="fa-brands fa-instagram mx-1"
+                                    style="color: white; font-size: 2em;"></i></a>
+                            <a href="http://www.tiktok.com/tiktok"><i class="fa-brands fa-tiktok mx-1"
+                                    style="color: white; font-size: 2em;"></i></a>
+                        </div>
+                    </div>
+                </li>
             </div>
         </div>
-        </footer>
+        <div class="d-flex justify-content-center">
+            <h6>© 2023 <a href="" style="text-decoration: none;">HI-5<a> ALL RIGHT RESERVED.</h6>
+        </div>
+    </div>
+</footer>

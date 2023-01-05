@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Hi 5</title>
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static '/css//bootstrap//bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css//style.css' %}">
+    <link rel="stylesheet" href="{% static '/css//base.css' %}">
+    <!-- js -->
+
+</head>
+
+<body>
+    {% include 'hi5/navbar.html' %}
+
+    {% block content %}
+    <section>
+        <div class="col-xl-5 offset-xl-4" style="padding-top: 20px; text-align: justify;">
+            <p><strong>Terms &amp; Conditions</strong><br />
+                Regional warranty teams (Hi-5 distributors as listed on contact page) will only replace a faulty item
+                with the same or most nearly comparable model or component then available when purchased within one year
+                through an authorized dealer or online retailer.<br />
+                Consumer warranty resolution can only be actioned through the original retailer.<br />
+                To claim on the warranty, consumers must supply the following to the retailer:<br />
+                Copy of their proof of purchase,<br />
+                the item or pictures of the item and the defect,<br />
+                their address / contact details.<br />
+                Consumers are responsible for giving a secure return shipping address where applicable.<br />
+                Consumers are responsible for the cost of shipping items to their original retailer.<br />
+                Hi-5 will NOT give cash refunds to any consumers for warranty item(s).<br />
+                Within the duration of this limited warranty, Hi-5, or their regional distributors, will, having deemed
+                a claim warrantable, either repair or replace any defective product with the same or most nearly
+                comparable model or component then available.<br />
+                THIS IS THE EXCLUSIVE REMEDY UNDER THIS WARRANTY.</p>
+            <p>ANY AND ALL OTHER REMEDIES AND DAMAGES THAT MAY OTHERWISE BE APPLICABLE ARE EXCLUDED, INCLUDING, BUT NOT
+                LIMITED TO, INCIDENTAL OR CONSEQUENTIAL DAMAGES OR PUNITIVE DAMAGES.<br />
+                THIS IS THE ONLY WARRANTY MADE BY Hi-5 ON ITS PRODUCTS AND COMPONENTS, AND THERE ARE NO WARRANTIES WHICH
+                EXTEND BEYOND THE DESCRIPTION HEREIN. ANY WARRANTIES THAT MAY OTHERWISE BE IMPLIED BY LAW INCLUDING, BUT
+                NOT LIMITED TO, ANY IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, ARE
+                EXCLUDED.</p>
+            <p>This Limited Warranty gives the consumer specific legal rights. The consumer may also have other legal
+                rights which vary from state to state or country to country. Some states and countries do not allow the
+                exclusion or limitation of incidental or consequential damages or warranties, so the above limitations
+                or exclusions may not apply to you. If it is determined by a court of competent jurisdiction that a
+                certain provision of this limited warranty does not apply, such determination shall not affect any other
+                provision of this limited warranty and all other provisions shall remain in effect.</p>
+        </div>
+    </section>
+    {% endblock %}
+    {% include 'hi5/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script src="{% static '/js//main.js' %}"></script>
+</body>
+
+</html>

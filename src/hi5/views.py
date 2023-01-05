@@ -54,6 +54,21 @@ def contact(request):
 def guide(request):
     return render(request,'hi5/guide.html')
 
+def guide_howto(request):
+    return render(request,'hi5/how-to-make-purchase.html')
+
+def guide_size(request):
+    return render(request, 'hi5/size-guide.html')
+
+def guide_payment(request):
+    return render(request, 'hi5/payment.html')
+
+def guide_warranty(request):
+    return render(request, 'hi5/warranty.html')
+
+def guide_tnc(request):
+    return render(request, 'hi5/tnc.html')
+
 def infouserpage(request):
     return render(request,'hi5/userpage.html')
 
