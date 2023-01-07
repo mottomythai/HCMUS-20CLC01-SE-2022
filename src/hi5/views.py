@@ -108,10 +108,12 @@ def logoutpage(request):
     return redirect('login')
     
 def productitem(request):
+    product_list= product_model.objects.filter().order_by('ID')
     productfind = request.GET.get('product')
     p_id = product_model.objects.filter(name=productfind)
     product = product_model.objects.filter(ID__in=p_id)
     context={
+        'product_list': product_list,
         'product':product,
     }
     return render(request,'hi5/product-item.html',context)

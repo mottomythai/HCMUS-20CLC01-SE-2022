@@ -25,25 +25,41 @@
         margin-left: 110px;
         cursor: pointer;
     }
+    .btn-email-ft{
+        margin-left: 10px;
+        background-color: transparent; 
+        border: 2px solid;
+        padding:5px 15px;
+        border-radius: 0;
+        margin-Bottom:3px;
+    }
+    .btn-email-ft:hover{
+        background-color: rgba(0, 0, 0, 0.263);
+        border:2px solid rgb(170, 168, 168);
+    }
 </style>
 <footer class="bg-dark text-white py-2" style="margin-top:74px">
     <div class="container" style="margin-Bottom:20px">
         <div class="row">
+            <div class="col-12 text-center">
+            <hr class="bg-light">
+                <h3 style="font-size:17px;">"HI 5 STORE"</h3>
+                <hr class="bg-light">
+            </div>
             <div class="col-4">
                 <img src="../../../static/images/logo-white.svg" alt="" style="width: 50px;">
                 <form class="mt-4">
                     <div class="form-group" style="display: flex; align-items: center;">
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                            placeholder="Enter email to get updates about Hi-5">
-                        <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 10px;">Send</button>
+                            placeholder="E-Mail Addresse" style="border-radius: 0;">
+                        <button type="submit" class="btn btn-primary btn-email-ft">SEND</button>
                     </div>
                 </form>
                 <p class="mt-4" style="font-size:14px;">Hotline: <a href="tel:0912345678"
                         style="color: white;">0912345678</a> -
-                    <a href="tel:0987654321" style="color: white;">0987654321</a>
+                    <a href="tel:0987654321" style="color: white;font-size:16px;">0987654321</a>
                 </p>
-                <a href="mailto:hi5storesupport@gmail.com" style="color: white;">Email:
-                    hi5storesupport@gmail.com</a>
+                <span style="font-size:16px;">Email: </span><a href="mailto:hi5storesupport@gmail.com" style="color: white; font-size:16px;">hi5storesupport@gmail.com</a>
             </div>
             <div class="col-4 mt-4">
                 <li class="li-between"><a href="{% url '' %}" style="color: white;">ABOUT HI-5</a> </li>

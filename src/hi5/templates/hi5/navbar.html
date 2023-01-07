@@ -2,7 +2,7 @@
 <div class="header grid">
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg">
-      <a href="#"><img src="./../../../static/images/logo.png"></a>
+      <a href="{% url '' %}"><img src="./../../../static/images/logo.png"></a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars"></i>
@@ -54,8 +54,55 @@
           right: 50px; /* Đặt khoảng cách từ bên phải trang */
 
         }
+        #myButton {
+          position: fixed;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          left: 25px;
+          bottom:25px;
+          width:64px;
+          height:64px;
+          cursor: pointer;
+          background:#276bb4;
+          border-radius: 100%;
+        }
+        #block-sale{
+          display: none;
+          width: 400px; 
+          position:fixed;
+          background-color: rgb(142, 142, 142);
+          left:100px;
+          bottom:50px;
+          z-index:100;
+          border-radius: 10px;
+         
+        }
+        .header-sale{
+          background:#276bb4;
+          height:60px;
+          border-radius: 10px 10px 0 0;
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          color:white;
+          font-size:19px;
+          font-weight:500;
+
+        }
       </style>
       <button id="scroll-to-top-button"></button>
+      <div id="myButton">
+        <img id="myButtonImg"  style="width:36px;" src="{% static '/images//bell.png' %}" alt="Click me">
+      </div>
+      <div id="block-sale">
+        <div class="header-sale">DEAL HOT CHỜ BẠN</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+      </div>
       <a href="">
         <image src="./../../../static/images/messenger.png" style="width:60px;" class="chat-messager">
       </a>
@@ -110,4 +157,43 @@ window.addEventListener('scroll', function() {
     document.getElementById('scroll-to-top-button').style.display = 'none';
   }
 });
+const button = document.getElementById("myButton");
+const block_sale = document.getElementById("block-sale");
+const button_img=document.getElementById("myButtonImg");
+let check=true;
+let timerId;
+function toggleImage() {
+ 
+  var img = document.getElementById("myButtonImg");
+  img.style.transform = (img.style.transform === "rotate(-20deg)" ? "rotate(20deg)" : "rotate(-20deg)");
+  timerId =setTimeout(toggleImage,800);
+}
+function stopToggle() {
+  var img = document.getElementById("myButtonImg");
+  
+  img.style.transform ="none";
+  clearTimeout(timerId);
+}
+button.addEventListener("click", function() {
+  if (block_sale.style.display === "none") {
+    block_sale.style.display = "block";
+    button_img.src = "./../../../static/images/close.png";
+    button_img.style.width="30px";
+    
+  } else {
+    block_sale.style.display = "none";
+    button_img.src = "./../../../static/images/bell.png";
+    button_img.style.width="36px";
+  }
+  if (button_img.src === "http://127.0.0.1:8000/static/images/bell.png") {
+    toggleImage();
+  }
+  if(button_img.src === "http://127.0.0.1:8000/static/images/close.png")
+  {
+    stopToggle();
+  }
+});
+
+
+
 </script>
