@@ -10,9 +10,15 @@ from django.contrib import messages
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateuserForm
+from django.core.paginator import Paginator
 
 def home(request):
-    product_list= product_model.objects.filter().order_by('ID')    #select *from product
+    #product_list= product_model.objects.filter().order_by('ID')    #select *from product
+
+    p = Paginator(product_model.objects.filter().order_by('ID'), 8)
+    default = request.GET.get('page')
+    product_list = p.get_page(default)
+
     size_list = productdetail_model.objects.values_list('size',flat=True).distinct()
     color_list = productdetail_model.objects.values_list('color',flat=True).distinct()
     category_id_list = product_model.objects.values_list('categoryid',flat=True).distinct()
@@ -25,17 +31,19 @@ def home(request):
 
     if categoryfind:
         p_id3 = category_model.objects.values('ID').filter(name=categoryfind)
-        product_list = product_model.objects.filter(categoryid__in=p_id3)
+        pid3 = Paginator(product_model.objects.filter(categoryid__in=p_id3), 8)
+        product_list = pid3.get_page(categoryfind)
 
     elif colorfind:
         p_id2 = productdetail_model.objects.values('productid').filter(color=colorfind)
-        product_list = product_model.objects.filter(ID__in=p_id2)
-
+        pid2 = Paginator(product_model.objects.filter(ID__in=p_id2), 8)
+        product_list = pid2.get_page(colorfind)
     elif sizefind:
         p_id = productdetail_model.objects.values('productid').filter(size=sizefind)
-        product_list = product_model.objects.filter(ID__in=p_id)
+        pid = Paginator(product_model.objects.filter(ID__in=p_id), 8)
+        product_list = pid.get_page(sizefind)
     else:
-        product_list = product_model.objects.filter().order_by('ID')
+        product_list = p.get_page(default)
 
 
     context = {
