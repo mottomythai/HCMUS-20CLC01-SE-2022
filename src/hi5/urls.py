@@ -22,6 +22,13 @@ urlpatterns = [
     path("reset_password_sent/",auth_views.PasswordResetDoneView.as_view(template_name='hi5/pw_reset_send.html'), name='password_reset_done'),
     path("reset/<uidb64>/<token>/",auth_views.PasswordResetConfirmView.as_view(template_name='hi5/pw_reset_confirm.html'), name='password_reset_confirm'),
     path("reset_password_complete/",auth_views.PasswordResetCompleteView.as_view(template_name='hi5/pw_reset_done.html'), name='password_reset_complete'),
-    path("search/",views.search,name='search')
+    path("search/",views.search,name='search'),
+    # Cart
+    path("cart/cart_detail", views.cart_detail, name='cart_detail'),
+    path('cart/add/<int:id>/', views.cart_add, name='cart_add'),
+    path('cart/item_clear/<int:id>/', views.item_clear, name='item_clear'),
+    path('cart/item_increment/<int:id>/', views.item_increment, name='item_increment'),
+    path('cart/item_decrement/<int:id>/', views.item_decrement, name='item_decrement'),
+    path('cart/cart_clear/', views.cart_clear, name='cart_clear'),
 ]   
 admin.site.site_header='Hi5'

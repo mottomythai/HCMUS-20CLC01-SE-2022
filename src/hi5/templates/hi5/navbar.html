@@ -4,7 +4,8 @@
     <nav class="navbar navbar-expand-lg">
       <a href="{% url '' %}"><img src="./../../../static/images/logo.png"></a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars"></i>
       </button>
 
@@ -25,75 +26,86 @@
           <div class="line"></div>
         </div>
 
-      <div class="nav-icon">
+        <div class="nav-icon">
           <!-- search -->
           <a href="#" class="search"><i class="fa-solid fa-magnifying-glass"></i></a>
           <!-- profile -->
           <a class='user' href="{% url 'user' %}"><i class="fa-solid fa-user"></i></a>
           <!-- shopping-bag -->
-          <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+          <a href="{% url 'cart_detail' %}"><i class="fa-solid fa-bag-shopping"></i></a>
         </div>
-    
+
       </div>
       <!-- --------modal_search------ -->
       <style>
         #scroll-to-top-button {
           background-image: url('./../../../static/images/top.png');
           background-size: cover;
-          position: fixed; /* Đặt vị trí cố định */
-          bottom: 160px; /* Đặt khoảng cách từ phía dưới trang */
-          right: 0px; /* Đặt khoảng cách từ bên phải trang */
+          position: fixed;
+          /* Đặt vị trí cố định */
+          bottom: 160px;
+          /* Đặt khoảng cách từ phía dưới trang */
+          right: 0px;
+          /* Đặt khoảng cách từ bên phải trang */
           width: 35px;
           height: 35px;
-          border:none;
-          z-index: 100; /* Làm cho nút bấm hiển thị dưới một lớp trên tất cả các nội dung khác trên trang */
+          border: none;
+          z-index: 100;
+          /* Làm cho nút bấm hiển thị dưới một lớp trên tất cả các nội dung khác trên trang */
         }
-        .chat-messager{
-          position: fixed; /* Đặt vị trí cố định */
-          bottom: 80px; /* Đặt khoảng cách từ phía dưới trang */
-          right: 50px; /* Đặt khoảng cách từ bên phải trang */
+
+        .chat-messager {
+          position: fixed;
+          /* Đặt vị trí cố định */
+          bottom: 80px;
+          /* Đặt khoảng cách từ phía dưới trang */
+          right: 50px;
+          /* Đặt khoảng cách từ bên phải trang */
 
         }
+
         #myButton {
           position: fixed;
           display: flex;
           align-items: center;
           justify-content: center;
           left: 25px;
-          bottom:25px;
-          width:64px;
-          height:64px;
+          bottom: 25px;
+          width: 64px;
+          height: 64px;
           cursor: pointer;
-          background:#276bb4;
+          background: #276bb4;
           border-radius: 100%;
         }
-        #block-sale{
+
+        #block-sale {
           display: none;
-          width: 400px; 
-          position:fixed;
+          width: 400px;
+          position: fixed;
           background-color: rgb(142, 142, 142);
-          left:100px;
-          bottom:50px;
-          z-index:100;
+          left: 100px;
+          bottom: 50px;
+          z-index: 100;
           border-radius: 10px;
-         
+
         }
-        .header-sale{
-          background:#276bb4;
-          height:60px;
+
+        .header-sale {
+          background: #276bb4;
+          height: 60px;
           border-radius: 10px 10px 0 0;
-          display:flex;
+          display: flex;
           align-items: center;
           justify-content: center;
-          color:white;
-          font-size:19px;
-          font-weight:500;
+          color: white;
+          font-size: 19px;
+          font-weight: 500;
 
         }
       </style>
       <button id="scroll-to-top-button"></button>
       <div id="myButton">
-        <img id="myButtonImg"  style="width:36px;" src="{% static '/images//bell.png' %}" alt="Click me">
+        <img id="myButtonImg" style="width:36px;" src="{% static '/images//bell.png' %}" alt="Click me">
       </div>
       <div id="block-sale">
         <div class="header-sale">DEAL HOT CHỜ BẠN</div>
@@ -109,19 +121,20 @@
       <div class="modal">
         <div class="modal-overlay">
           <div class="fechar">
-            <a href="#">Close</a> 
+            <a href="#">Close</a>
           </div>
-          <div class="modal-body">    
+          <div class="modal-body">
             <div class="container">
               <div class="row justify-content-around">
                 <form action="/search/" method="get" class="form-check-inline search-bar col-md-8">
-                  <input class="form-control form-input" type="search" placeholder="SEARCH NOW" name="query" id="query" aria-label="Search" required>
+                  <input class="form-control form-input" type="search" placeholder="SEARCH NOW" name="query" id="query"
+                    aria-label="Search" required>
                   <button class="btn" type="submit" value="type-users"><i class="bi bi-search"></i></button>
                 </form>
               </div>
-              
+
               <!-- suggest -->
-            </div> 
+            </div>
             <div class="suggest">
               <h3>Suggest</h3>
               <ul>
@@ -131,14 +144,14 @@
               </ul>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
     </nav>
   </div>
 </div>
 <script>
   // Khi người dùng nhấn nút bấm, kéo trang xuống đầu trang
-  document.getElementById('scroll-to-top-button').addEventListener('click', function() {
+  document.getElementById('scroll-to-top-button').addEventListener('click', function () {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -146,53 +159,52 @@
   });
 
 
-window.addEventListener('scroll', function() {
-  // Lấy vị trí hiện tại của trang
-  var currentScrollPosition = window.pageYOffset;
-  
-  // Nếu người dùng đã kéo trang xuống khoảng cách 100px từ đầu trang, hiển thị nút bấm
-  if (currentScrollPosition > 170) {
-    document.getElementById('scroll-to-top-button').style.display = 'block';
-  } else { // Ngược lại
-    document.getElementById('scroll-to-top-button').style.display = 'none';
+  window.addEventListener('scroll', function () {
+    // Lấy vị trí hiện tại của trang
+    var currentScrollPosition = window.pageYOffset;
+
+    // Nếu người dùng đã kéo trang xuống khoảng cách 100px từ đầu trang, hiển thị nút bấm
+    if (currentScrollPosition > 170) {
+      document.getElementById('scroll-to-top-button').style.display = 'block';
+    } else { // Ngược lại
+      document.getElementById('scroll-to-top-button').style.display = 'none';
+    }
+  });
+  const button = document.getElementById("myButton");
+  const block_sale = document.getElementById("block-sale");
+  const button_img = document.getElementById("myButtonImg");
+  let check = true;
+  let timerId;
+  function toggleImage() {
+
+    var img = document.getElementById("myButtonImg");
+    img.style.transform = (img.style.transform === "rotate(-20deg)" ? "rotate(20deg)" : "rotate(-20deg)");
+    timerId = setTimeout(toggleImage, 800);
   }
-});
-const button = document.getElementById("myButton");
-const block_sale = document.getElementById("block-sale");
-const button_img=document.getElementById("myButtonImg");
-let check=true;
-let timerId;
-function toggleImage() {
- 
-  var img = document.getElementById("myButtonImg");
-  img.style.transform = (img.style.transform === "rotate(-20deg)" ? "rotate(20deg)" : "rotate(-20deg)");
-  timerId =setTimeout(toggleImage,800);
-}
-function stopToggle() {
-  var img = document.getElementById("myButtonImg");
-  
-  img.style.transform ="none";
-  clearTimeout(timerId);
-}
-button.addEventListener("click", function() {
-  if (block_sale.style.display === "none") {
-    block_sale.style.display = "block";
-    button_img.src = "./../../../static/images/close.png";
-    button_img.style.width="30px";
-    
-  } else {
-    block_sale.style.display = "none";
-    button_img.src = "./../../../static/images/bell.png";
-    button_img.style.width="36px";
+  function stopToggle() {
+    var img = document.getElementById("myButtonImg");
+
+    img.style.transform = "none";
+    clearTimeout(timerId);
   }
-  if (button_img.src === "http://127.0.0.1:8000/static/images/bell.png") {
-    toggleImage();
-  }
-  if(button_img.src === "http://127.0.0.1:8000/static/images/close.png")
-  {
-    stopToggle();
-  }
-});
+  button.addEventListener("click", function () {
+    if (block_sale.style.display === "none") {
+      block_sale.style.display = "block";
+      button_img.src = "./../../../static/images/close.png";
+      button_img.style.width = "30px";
+
+    } else {
+      block_sale.style.display = "none";
+      button_img.src = "./../../../static/images/bell.png";
+      button_img.style.width = "36px";
+    }
+    if (button_img.src === "http://127.0.0.1:8000/static/images/bell.png") {
+      toggleImage();
+    }
+    if (button_img.src === "http://127.0.0.1:8000/static/images/close.png") {
+      stopToggle();
+    }
+  });
 
 
 

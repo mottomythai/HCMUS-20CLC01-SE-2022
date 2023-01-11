@@ -11,6 +11,8 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateuserForm
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from cart.cart import Cart
 
 def home(request):
     #product_list= product_model.objects.filter().order_by('ID')    #select *from product
@@ -44,7 +46,6 @@ def home(request):
         product_list = pid.get_page(sizefind)
     else:
         product_list = p.get_page(default)
-
 
     context = {
        'product_list': product_list,
@@ -125,6 +126,7 @@ def productitem(request):
         'product':product,
     }
     return render(request,'hi5/product-item.html',context)
+
 def search(request):
     query = request.GET.get('query')
     product_list = product_model.objects.filter(name__icontains=query)
@@ -132,3 +134,46 @@ def search(request):
        'product_list': product_list
     }
     return render(request,'hi5/search.html', context)
+
+@login_required(login_url="/login")
+def cart_add(request, id):
+    cart = Cart(request)
+    product = product_model.objects.get(itemno=id)
+    cart.add(product=product)
+    return redirect("")
+
+
+@login_required(login_url="/login")
+def item_clear(request, id):
+    cart = Cart(request)
+    product = product_model.objects.get(itemno=id)
+    cart.remove(product)
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/login")
+def item_increment(request, id):
+    cart = Cart(request)
+    product = product_model.objects.get(itemno=id)
+    cart.add(product=product)
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/login")
+def item_decrement(request, id):
+    cart = Cart(request)
+    product = product_model.objects.get(itemno=id)
+    cart.decrement(product=product)
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/login")
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("cart_detail")
+
+
+@login_required(login_url="/login")
+def cart_detail(request):
+    return render(request, 'hi5/cart_detail.html')
