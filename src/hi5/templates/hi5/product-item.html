@@ -90,7 +90,7 @@
               <form class="d-flex justify-content-left">
                 <!-- Default input -->
                 <input type="number" min="0" value="1" aria-label="Search" class="form-control" style="width: 100px">
-                <a class="btn btn-primary btn-md my-0 p " href="{% url 'cart_add' item.itemno %}">Add to cart
+                <a class="btn btn-primary btn-md my-0 p " href="#" type="submit">Add to cart
                   <i class="fas fa-shopping-cart ml-1"></i>
                 </a>
 
@@ -191,9 +191,9 @@
                 {% for item in product_list %}
                 <div class="col-lg-3">
                   <a class="card-link" href="{% url 'producitem' %}?product={{item.name}}">
-                    <div class="card" style="width: 15rem; margin-bottom:20px">
+                    <div class="card" style="width: 15rem; margin-bottom:24px;height:370px;">
                       <div class="card-img">
-                        <img src="{{ item.thumbnail }}" class="card-img-top" alt="...">
+                        <img src="{{ item.thumbnail }}" class="card-img-top" alt="..." style="padding:3px 3px;">
                       </div>
                       <div class="card-body">
                         <p class="card-text" style="font-size:16px;">{{ item.name }}</p>
@@ -229,7 +229,7 @@
           background-color: rgba(80, 80, 80, 0.62);
         }
       </style>
-      <div id="feeback-btn" class="rating-box feeback">GỬI ĐÁNH GIÁ CỦA BẠN</div>
+      <div id="feeback-btn" class="rating-box feeback">FEEDBACK ABOUT PRODUCT</div>
       <hr class="bg-light" style="height: 14px;">
       <style>
         .modal-feeback {
@@ -250,14 +250,27 @@
 
         }
 
-        .star {
-          color: #ffc107;
-          font-size: 32px;
-          cursor: pointer;
+        .star-rating {
+          display: flex;
+          justify-content: center;
+          margin-top: -28px;
         }
 
-        .star.selected {
-          color: #ffc107;
+        .star {
+          cursor: pointer;
+          margin-right: 6px;
+          color: #999;
+
+        }
+
+        .star i {
+          font-size: 15px;
+        }
+
+        .star:hover,
+        .star:focus,
+        .selected {
+          color: orange;
         }
       </style>
       <div class="modal-feeback" style="z-index:101">
@@ -267,38 +280,42 @@
               <div class="col-12 col-md-8 col-lg-6 p-0">
                 <div class="card bg-white py-2 px-4">
                   <div class="card-body">
-                    <a href="#" class="close-icon float-right"><i class="fa fa-times"></i></a>
-                    <h4 class="card-title mb-4"
-                      style="display:flex; justify-content:center;margin-top:40px;margin-bottom:20px;font-size:18px; font-weight:600;">
-                      Đánh giá sản phẩm</h4>
-                    <p class="card-text mb-4"
-                      style="display:flex; justify-content:center;font-size:14px;color:#000000cf;font-family: Arial, sans-serif;">
-                      Bạn cảm thấy sản phẩm như thế nào?<span
-                        style="color:#e74949;margin-left:7px; font-size:19px;">*</span></p>
-                    <div style="display:flex; justify-content:center;">
-                      <i class="star">★</i>
-                      <i class="star">★</i>
-                      <i class="star">★</i>
-                      <i class="star">★</i>
-                      <i class="star">★</i>
-                    </div>
-                    <p class="card-text mb-4"
-                      style="display:flex; justify-content:center;font-size:14px;color:#000000cf;font-family: Arial, sans-serif; margin-top:10px;">
-                      Chia sẽ cảm nhận của bạn về sản phẩm:</p>
-                    <div class="form-group mb-4">
-                      <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="form-group mb-4">
-                      <input type="text" class="form-control" placeholder="Họ tên" />
-                    </div>
-                    <div class="form-group mb-4">
-                      <input type="text" class="form-control" placeholder="Số điện thoại" />
-                    </div>
-                    <div class="form-group mb-4">
-                      <input type="text" class="form-control" placeholder="Email" />
-                    </div>
-                    <button type="submit" class="btn btn-warning w-100">Gửi đánh giá</button>
-
+                    <form action="{% url '' %}" method="post">
+                      {% csrf_token %}
+                      <div style="cursor: pointer;" class="close-icon-feedback float-right"><i class="fa fa-times"></i>
+                      </div>
+                      <h4 class="card-title mb-4"
+                        style="display:flex; justify-content:center;margin-top:40px;margin-bottom:20px;font-size:18px; font-weight:600;">
+                        Product Feedback</h4>
+                      <p class="card-text mb-4"
+                        style="display:flex; justify-content:center;font-size:14px;color:#000000cf;font-family: Arial, sans-serif;">
+                        How do you feel about the product?<span
+                          style="color:#e74949;margin-left:7px; font-size:19px;">*</span></p>
+                      <div class="star-rating">
+                        <div class="star" data-value="1"><i class="bi bi-star-fill"></i></div>
+                        <div class="star" data-value="2"><i class="bi bi-star-fill"></i></div>
+                        <div class="star" data-value="3"><i class="bi bi-star-fill"></i></div>
+                        <div class="star" data-value="4"><i class="bi bi-star-fill"></i></div>
+                        <div class="star" data-value="5"><i class="bi bi-star-fill"></i></div>
+                        <input type="hidden" id="rating" value="0">
+                      </div>
+                      <p class="card-text mb-4"
+                        style="display:flex; justify-content:center;font-size:14px;color:#000000cf;font-family: Arial, sans-serif; margin-top:10px;">
+                        Share your thought about this product:</p>
+                      <div class="form-group mb-4">
+                        <textarea class="form-control" rows="3" name="content"></textarea>
+                      </div>
+                      <div class="form-group mb-4">
+                        <input type="text" class="form-control" placeholder="Name" name="name">
+                      </div>
+                      <div class="form-group mb-4">
+                        <input type="text" class="form-control" placeholder="Phonenumber" name="phone">
+                      </div>
+                      <div class="form-group mb-4">
+                        <input type="text" class="form-control" placeholder="Email" name="email">
+                      </div>
+                      <button type="submit" class="btn btn-warning w-100">Send</button>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -312,7 +329,7 @@
       <div class="modal-product">
         <div class="modal-overlay-product">
           <div class="fechar close-product">
-            <a href="#" style="font-size:18px;">Close</a>
+            <div id="btn-close" class="close-icon-product" style="font-size:18px;cursor: pointer;">Close</div>
           </div>
           <div class="modal-body--product">
             <img
@@ -336,26 +353,62 @@
       <script src="{% static '/js//main.js' %}"></script>
       <script src="{% static '/js//product-item.js' %}"></script>
       <script>
+        const close_product = document.querySelector('.close-icon-product')
+        const close_feedback = document.querySelector('.close-icon-feedback')
         const feeback = document.getElementById('feeback-btn');
-        const modal_feeback = $('.modal-feeback');
+        const modal_product = document.querySelector('.modal-product');
+        const modal_feedback = document.querySelector('.modal-feeback');
+
         feeback.onclick = function () {
-          console.log("1111");
-          modal_feeback.style.display = 'block';
+          modal_feedback.style.display = 'block';
         }
 
-        closeproduct.onclick = function () {
-          modal_feeback.style.display = 'none';
+        close_product.onclick = function () {
+          modal_product.style.display = 'none';
+        }
+        close_feedback.onclick = function () {
+          modal_feedback.style.display = 'none';
         }
         const stars = document.querySelectorAll('.star');
-        stars.forEach(star => {
-          star.addEventListener('click', e => {
-            const selected = document.querySelector('.star.selected');
-            if (selected) {
-              selected.classList.remove('selected');
+        const ratingInput = document.getElementById('rating');
+        let star_id = 0;
+
+        for (const star of stars) {
+          star.addEventListener('mouseenter', function () {
+            const currentIndex = parseInt(this.getAttribute('data-value'), 10);
+            for (let i = 0; i < currentIndex; i++) {
+              stars[i].querySelector('i').classList.add('selected');
             }
-            e.target.classList.add('selected');
           });
-        });
+
+          star.addEventListener('mouseleave', function () {
+            for (const star of stars) {
+              star.querySelector('i').classList.remove('selected');
+            }
+          });
+
+          star.addEventListener('click', function () {
+            const currentIndex = parseInt(this.getAttribute('data-value'), 10);
+            for (let i = 0; i < currentIndex; i++) {
+              stars[i].querySelector('i').classList.add('selected');
+            }
+            ratingInput.value = currentIndex;
+            star_id = value;
+          });
+        }
+        for (let i = 0; i < stars.length; i++) {
+          stars[i].addEventListener("click", function () {
+            let rating = this.dataset.value;
+            document.getElementById("rating").value = rating;
+            for (let j = 0; j < stars.length; j++) {
+              if (j <= rating - 1) {
+                stars[j].style.color = "orange";
+              } else {
+                stars[j].style.color = "#999";
+              }
+            }
+          });
+        }
       </script>
 
 </body>

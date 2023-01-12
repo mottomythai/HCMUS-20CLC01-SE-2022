@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import product as product_model
 from .models import productdetail as productdetail_model
 from .models import category as category_model
+from .models import Order as order_model
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate ,login, logout
 from django.contrib import messages
@@ -12,7 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateuserForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from cart.cart import Cart
+import datetime
 
 def home(request):
     #product_list= product_model.objects.filter().order_by('ID')    #select *from product
@@ -133,47 +135,27 @@ def search(request):
     context = {
        'product_list': product_list
     }
-    return render(request,'hi5/search.html', context)
+    return render(request,'hi5/search.html')
 
-@login_required(login_url="/login")
-def cart_add(request, id):
-    cart = Cart(request)
-    product = product_model.objects.get(itemno=id)
-    cart.add(product=product)
-    return redirect("")
+@login_required(login_url='/login')
+def cart(request):
+    cart_list = product_model.objects.filter(price = 400.0)
 
+    context = {
+        'cart_list': cart_list,
+    }
+    return render(request, "hi5/cart.html", context)
 
-@login_required(login_url="/login")
-def item_clear(request, id):
-    cart = Cart(request)
-    product = product_model.objects.get(itemno=id)
-    cart.remove(product)
-    return redirect("cart_detail")
+@login_required(login_url='/login')
+def checkout(request):
+    cart_list = product_model.objects.filter(price = 400.0)
+    total = sum([item.price for item in product_model.objects.filter(price = 400.0)])
 
+    context = {
+        'cart_list': cart_list,
+        'total': total
+    }
+    return render(request, "hi5/checkout.html", context)
 
-@login_required(login_url="/login")
-def item_increment(request, id):
-    cart = Cart(request)
-    product = product_model.objects.get(itemno=id)
-    cart.add(product=product)
-    return redirect("cart_detail")
-
-
-@login_required(login_url="/login")
-def item_decrement(request, id):
-    cart = Cart(request)
-    product = product_model.objects.get(itemno=id)
-    cart.decrement(product=product)
-    return redirect("cart_detail")
-
-
-@login_required(login_url="/login")
-def cart_clear(request):
-    cart = Cart(request)
-    cart.clear()
-    return redirect("cart_detail")
-
-
-@login_required(login_url="/login")
-def cart_detail(request):
-    return render(request, 'hi5/cart_detail.html')
+def success(request):
+    return render(request, "hi5/purchase_success.html")

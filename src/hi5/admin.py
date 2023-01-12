@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import product
 
 
 # Register your models here.
@@ -23,6 +22,9 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields=['name']
     list_filter=('ID','name')
 admin.site.register(category,CategoryAdmin)
+
+admin.site.register(Order)
+
 
 # admin.site.register(Customer)
 # admin.site.register(Product)

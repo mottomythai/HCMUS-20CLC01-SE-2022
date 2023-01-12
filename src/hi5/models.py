@@ -11,7 +11,7 @@ class category(models.Model):
 class product(models.Model):
     ID =models.AutoField(primary_key=True)
     name=models.CharField(max_length=255,null=False)
-    price=models.FloatField(null=True)
+    price=models.IntegerField(null=True)
     thumbnail=models.CharField(max_length=400,null=True)
     itemno =models.CharField(max_length=50,null=True)
     description= models.CharField(max_length=500,null=True)
@@ -39,3 +39,13 @@ class productdetail(models.Model):
     
     def __str__(self):
         return f"{self.productid.name},{self.color}, {self.size}"
+
+
+class Order(models.Model):
+    items = models.ManyToManyField(product)
+
+    # def get_cart_items(self):
+    #     return self.items.all()
+
+    # def get_cart_total(self):
+    #     return sum([item.product.price for item in self.items.all()])
