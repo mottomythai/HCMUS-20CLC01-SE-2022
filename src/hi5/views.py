@@ -135,7 +135,8 @@ def search(request):
     context = {
        'product_list': product_list
     }
-    return render(request,'hi5/search.html')
+    return render(request,'hi5/search.html', context)
+
 
 @login_required(login_url='/login')
 def cart(request):

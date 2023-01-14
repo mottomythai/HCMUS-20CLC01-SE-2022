@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,9 @@
     <title>Shop Hi 5</title>
     <!-- icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,46 +23,54 @@
     <link rel="stylesheet" href="{% static '/css//base.css' %}">
     <!-- js -->
 </head>
-<body>
-    {%  include 'hi5/navbar.html' %}
 
-	{% block content %}
-	<div class="content-login gird">
+<body>
+    {% include 'hi5/navbar.html' %}
+
+    {% block content %}
+    <div class="content-login gird">
         <div class="login">
             <h1 class="text-center">Login</h1>
-            
+
             <form method="POST" class="needs-validation">
-                {% csrf_token %} 
+                {% csrf_token %}
                 <div class="form-group">
-                    <input class="form-control form-size" name="username" type="text" id="username"  placeholder="Username" required>
+                    <input class="form-control form-size" name="username" type="text" id="username"
+                        placeholder="Username" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-size" name="password" type="password" id="password"  placeholder="Password" required>
+                    <input class="form-control form-size" name="password" type="password" id="password"
+                        placeholder="Password" required>
                 </div>
                 {% for message in messages %}
-                    <div class="alert alert-warning" role="alert">
-                     {{message}}
-                  </div>
+                <div class="alert alert-warning" role="alert">
+                    {{message}}
+                </div>
                 {% endfor%}
                 <div class="login-footer">
                     <div class="button">
                         <input class="btn btn-success btn-br" type="submit" value="LOGIN">
                     </div>
                     <div class="footer-text">
-                        <a href="{% url 'reset_password' %}">Quên mật khẩu?</a>
-                        <p>hoặc<a href="{% url 'signup' %}">Đăng Ký</a></p>
-                        
+                        <a href="{% url 'reset_password' %}">Forgot password?</a>
+                        <p>hoặc<a href="{% url 'signup' %}">Sign up</a></p>
+
                     </div>
                 </div>
             </form>
         </div>
     </div>
-	{% endblock %}
-    
+    {% endblock %}
+
     <!-- -----footer----- -->
-    {%  include 'hi5/footer.html' %}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    {% include 'hi5/footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
     <script src="{% static '/js//main.js' %}"></script>
 </body>
+
 </html>
